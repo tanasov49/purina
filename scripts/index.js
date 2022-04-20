@@ -1,5 +1,5 @@
 const section = document.querySelector('address-clients');
-const requestURL = 'data/json.json';
+const requestURL = '../data/json.json';
 const request = new XMLHttpRequest();
 const templateDbc = document.querySelector('.template-dbc');
 
