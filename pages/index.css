@@ -1,0 +1,16 @@
+@import url(../blocks/page/page.css);
+@import url(../blocks/header/__logo/header__logo.css);
+@import url(../blocks/info/info.css);
+@import url(../blocks/info/__title/info__title.css);
+@import url(../blocks/info/__subtitle/info__subtitle.css);
+@import url(../blocks/address-clients/address-clients.css);
+@import url(../blocks/address/address.css);
+@import url(../blocks/address/__option/address__option.css);
+@import url(../blocks/dbc-codes/dbc-codes.css);
+@import url(../blocks/dbc-list/dbc-list.css);
+body {
+    max-width: 1280px;
+    margin: 0 auto;
+    background-color: #f5f1e5;
+    font-family: 'Roboto', sans-serif;
+}
