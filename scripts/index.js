@@ -15,20 +15,23 @@ request.onload = function() {
 function showHeroes(jsonObj) {
     const heroes = jsonObj;
 
+
     for (let i = 0; i < heroes.length; i++) {
       const myArticle = document.querySelector('.address');
       const myH2 = document.createElement('option');
       myH2.className = 'address__option';
       myH2.textContent = heroes[i]["Address"]; 
     myArticle.appendChild(myH2);
+    const dbc = Object.keys(jsonObj[i]);
+    for (let j = 0; j < dbc.length; j++) {
+      const dbcList = templateDbc.content.querySelector('.dbc-list').cloneNode(true);
+      const dbcText = document.createElement('p');
+      dbcText.className = 'dbc-list__text';
+      dbcText.textContent = dbc[j];
+      dbcList.appendChild(dbcText);
+      dbcCodes.appendChild(dbcList);
+    }
   }
-  for (let i = 0; i < heroes.length; i++) {
-    const dbcList = templateDbc.content.querySelector('.dbc-list').cloneNode(true);
-    const dbcText = document.createElement('p');
-    dbcText.className = 'dbc-list__text';
-    dbcText.textContent = heroes[i]["Address"];
-    dbcList.appendChild(dbcText);
-    dbcCodes.appendChild(dbcList);
-  }
+
 
 }

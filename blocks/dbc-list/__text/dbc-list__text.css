@@ -1,0 +1,9 @@
+.dbc-list__text {
+    margin: 0 0 5px 0;
+    font-size: 16px;
+    line-height: 14px;
+    font-weight: 400;
+}
+.dbc-list__text:last-child {
+    margin: 0;
+}

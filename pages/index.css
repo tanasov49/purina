@@ -8,6 +8,7 @@
 @import url(../blocks/address/__option/address__option.css);
 @import url(../blocks/dbc-codes/dbc-codes.css);
 @import url(../blocks/dbc-list/dbc-list.css);
+@import url(../blocks/dbc-list/__text/dbc-list__text.css);
 body {
     max-width: 1280px;
     margin: 0 auto;
