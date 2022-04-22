@@ -14,12 +14,15 @@ select.append(...addNewElements);
 
 dbc.forEach(function (dbc) {
   const dbcList = templateDbc.content.querySelector('.dbc-list').cloneNode();
-  const dbcValue = Object.keys(dbc);
-  for (let i = 1; i <= dbcValue.length; i++) {
+  const dbcKey = Object.keys(dbc);
+  const dbcValue = Object.values(dbc);
+  for (let i = 0; i <= dbcKey.length; i++) {
     const dbcText = document.createElement('p');
     dbcText.className = 'dbc-list__text';
-    dbcText.textContent = dbcValue[i];
-    dbcList.appendChild(dbcText);
+    if (dbcValue[i] === "0") {
+      dbcText.textContent = dbcKey[i];
+      dbcList.appendChild(dbcText);
+    }
   }
   dbcCodes.appendChild(dbcList);
 });
