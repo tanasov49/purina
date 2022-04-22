@@ -2,10 +2,15 @@ const select = document.querySelector('.address');
 const templateDbc = document.querySelector('.template-dbc');
 const dbcCodes = document.querySelector('.dbc-codes');
 
+// Метод поиска адресов с помощью map
 const createCard = (card) => {
   const addressTitle = document.createElement('option');
   addressTitle.className = 'address__option';
   addressTitle.textContent = card["Address"];
+  for (let i = 0; i < dbc.length; i++) {
+    addressTitle.id = 'address_' + [i];
+    return addressTitle;
+  }
   return addressTitle;
 };
 
@@ -13,11 +18,13 @@ const addNewElements = dbc.map((card) => {
   return createCard(card);
 });
 select.append(...addNewElements);
+// Метод поиска адресов с помощью foreach
 // dbc.forEach(function (dbc) {
-//     const addressTitle = document.createElement('option');
-//     addressTitle.className = 'address__option';
-//     addressTitle.textContent = dbc["Address"];
-//     select.appendChild(addressTitle);
+//   const addressTitle = document.createElement('option');
+//   const addressValue = dbc["Address"];
+//   addressTitle.className = 'address__option';
+//   addressTitle.textContent = addressValue;
+//   select.appendChild(addressTitle);
 // })
 dbc.forEach(function (dbc) {
   const dbcList = templateDbc.content.querySelector('.dbc-list').cloneNode();
