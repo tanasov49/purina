@@ -1,16 +1,14 @@
 const select = document.querySelector('.address');
 const templateDbc = document.querySelector('.template-dbc');
 const dbcCodes = document.querySelector('.dbc-codes');
-const showAddress = (card) => {
+
+dbc.forEach(function (dbc) {
+  const addressClient = dbc["Address"]
   const addressTitle = document.createElement('option');
-  addressTitle.textContent = card["Address"];
+  addressTitle.textContent = addressClient;
   addressTitle.className = 'address__option'
-  return addressTitle;
-}
-const addNewElements = dbc.map((card) => {
-  return showAddress(card);
-});
-select.append(...addNewElements);
+  select.appendChild(addressTitle);
+})
 
 dbc.forEach(function (dbc) {
   const dbcList = templateDbc.content.querySelector('.dbc-list').cloneNode();
@@ -26,3 +24,24 @@ dbc.forEach(function (dbc) {
   }
   dbcCodes.appendChild(dbcList);
 });
+
+const showDbcCodesClient = (n) => {
+  let i;
+  let selectAddress = document.getElementsByClassName('address__option');
+  let selectDbcCodes = document.getElementsByClassName('dbc-list');
+  if (n > slides.length) {
+    slideIndex = 1
+  }
+  if (n < 1) {
+      slideIndex = slides.length
+  }
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" slider__radio_active", "");
+  }
+  slides[slideIndex - 1].style.display = "grid";
+  dots[slideIndex - 1].className += " slider__radio_active";
+
+}
