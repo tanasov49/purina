@@ -3,20 +3,16 @@ const templateDbc = document.querySelector('.template-dbc');
 const dbcCodes = document.querySelector('.dbc-codes');
 
 const createCard = (card) => {
-  const dbcList = templateDbc.content.querySelector(".dbc-list").cloneNode(true);
   const addressTitle = document.createElement('option');
+  addressTitle.className = 'address__option';
   addressTitle.textContent = card["Address"];
-  dbcList.appendChild(addressTitle);
-  return dbcList;
+  return addressTitle;
 };
 
 const addNewElements = dbc.map((card) => {
   return createCard(card);
 });
-dbcList.append(...addNewElements);
-
-
-
+select.append(...addNewElements);
 // dbc.forEach(function (dbc) {
 //     const addressTitle = document.createElement('option');
 //     addressTitle.className = 'address__option';
