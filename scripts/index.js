@@ -2,14 +2,27 @@ const select = document.querySelector('.address');
 const templateDbc = document.querySelector('.template-dbc');
 const dbcCodes = document.querySelector('.dbc-codes');
 
-dbc.forEach(function (dbc) {
-  const addressClient = dbc["Address"]
+const createCard = (card) => {
+  const dbcList = templateDbc.content.querySelector(".dbc-list").cloneNode(true);
   const addressTitle = document.createElement('option');
-  addressTitle.textContent = addressClient;
-  addressTitle.className = 'address__option'
-  select.appendChild(addressTitle);
-})
+  addressTitle.textContent = card["Address"];
+  dbcList.appendChild(addressTitle);
+  return dbcList;
+};
 
+const addNewElements = dbc.map((card) => {
+  return createCard(card);
+});
+dbcList.append(...addNewElements);
+
+
+
+// dbc.forEach(function (dbc) {
+//     const addressTitle = document.createElement('option');
+//     addressTitle.className = 'address__option';
+//     addressTitle.textContent = dbc["Address"];
+//     select.appendChild(addressTitle);
+// })
 dbc.forEach(function (dbc) {
   const dbcList = templateDbc.content.querySelector('.dbc-list').cloneNode();
   const dbcKey = Object.keys(dbc);
@@ -21,27 +34,30 @@ dbc.forEach(function (dbc) {
       dbcText.textContent = dbcKey[i];
       dbcList.appendChild(dbcText);
     }
+    dbcCodes.appendChild(dbcList);
   }
-  dbcCodes.appendChild(dbcList);
 });
 
-const showDbcCodesClient = (n) => {
-  let i;
-  let selectAddress = document.getElementsByClassName('address__option');
-  let selectDbcCodes = document.getElementsByClassName('dbc-list');
-  if (n > slides.length) {
-    slideIndex = 1
-  }
-  if (n < 1) {
-      slideIndex = slides.length
-  }
-  for (i = 0; i < slides.length; i++) {
-      slides[i].style.display = "none";
-  }
-  for (i = 0; i < dots.length; i++) {
-      dots[i].className = dots[i].className.replace(" slider__radio_active", "");
-  }
-  slides[slideIndex - 1].style.display = "grid";
-  dots[slideIndex - 1].className += " slider__radio_active";
 
-}
+
+// var slideIndex = 1;
+// showDbcCodesClient(slideIndex);
+// /* Устанавливает текущий слайд */
+// function currentSlide(n) {
+//   showDbcCodesClient(slideIndex = n);
+// }
+// const showDbcCodesClient = (n) => {
+//   let i;
+//   let selectAddress = document.getElementsByClassName('address__option');
+//   let selectDbcCodes = document.getElementsByClassName('dbc-list');
+//   if (n > selectDbcCodes.length) {
+//     slideIndex = 1
+//   }
+//   if (n < 1) {
+//       slideIndex = selectDbcCodes.length
+//   }
+//   for (i = 0; i < selectDbcCodes.length; i++) {
+//     selectDbcCodes[i].style.display = "none";
+//   }
+//   selectDbcCodes[slideIndex - 1].style.display = "grid";
+// }
