@@ -1,0 +1,6 @@
+.address__option {
+    list-style-type: none;
+    max-width: 90%;
+    cursor: pointer;
+    transition: opacity 0.5s linear;
+}

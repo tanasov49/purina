@@ -1,5 +1,12 @@
 .address {
+    position: absolute;
     margin: 0;
-    width: 300px;
+    width: 0;
+    height: 30vh;
     padding: 10px 5px;
+    background-color: aliceblue;
+    top: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: opacity 0.3s linear;
 }

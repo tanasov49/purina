@@ -1,7 +1,7 @@
-const select = document.querySelector('.address');
+const address = document.querySelector('.address');
 const templateDbc = document.querySelector('.template-dbc');
 const dbcCodes = document.querySelector('.dbc-codes');
-
+const closeBtnAddress = document.querySelector('.address-clients__close-btn');
 // Метод поиска адресов с помощью map
 // const createCard = (card) => {
 //   const addressTitle = document.createElement('option');
@@ -18,12 +18,12 @@ const dbcCodes = document.querySelector('.dbc-codes');
 // select.append(...addNewElements);
 // Метод поиска адресов с помощью foreach
 dbc.forEach(function (dbc, index) {
-  const addressTitle = document.createElement('option');
+  const addressTitle = document.createElement('li');
   const addressValue = dbc["Address"];
   addressTitle.className = 'address__option';
   addressTitle.textContent = addressValue;
-  addressTitle.id = 'address_' + index;
-  select.appendChild(addressTitle);
+  addressTitle.setAttribute('onclick', `option(${(++index)})`)
+  address.appendChild(addressTitle);
 })
 dbc.forEach(function (dbc) {
   const dbcList = templateDbc.content.querySelector('.dbc-list').cloneNode();
@@ -41,25 +41,50 @@ dbc.forEach(function (dbc) {
 });
 
 
+const closeKeyEsc = (evt) => {
+  if (evt.key === 'Escape') {
+    const addressOpened = document.querySelector('.address__opened');
+    closeAddress(addressOpened);
+  }
+}
+const openAddress = (address) => {
+  address.classList.add("address__opened");
+  closeBtnAddress.classList.add("address-clients__close-btn_visibled");
+  document.addEventListener('keyup', closeKeyEsc);
+}
+const closeAddress = (address) => {
+  address.classList.remove("address__opened");
+  closeBtnAddress.classList.remove("address-clients__close-btn_visibled");
+  document.removeEventListener('keyup', closeKeyEsc);
+}
+const btnAddress = document.querySelector('.address-clients__btn');
+btnAddress.addEventListener('click', () => {
+  openAddress(address);
+});
+closeBtnAddress.addEventListener('click', () => {
+  closeAddress(address);
+})
 
-// var slideIndex = 1;
-// showDbcCodesClient(slideIndex);
-// /* Устанавливает текущий слайд */
-// function currentSlide(n) {
-//   showDbcCodesClient(slideIndex = n);
-// }
-// const showDbcCodesClient = (n) => {
-//   let i;
-//   let selectAddress = document.getElementsByClassName('address__option');
-//   let selectDbcCodes = document.getElementsByClassName('dbc-list');
-//   if (n > selectDbcCodes.length) {
-//     slideIndex = 1
-//   }
-//   if (n < 1) {
-//       slideIndex = selectDbcCodes.length
-//   }
-//   for (i = 0; i < selectDbcCodes.length; i++) {
-//     selectDbcCodes[i].style.display = "none";
-//   }
-//   selectDbcCodes[slideIndex - 1].style.display = "grid";
-// }
+var slideIndex = 1;
+showSlides(slideIndex);
+function option(n) {
+  showSlides(slideIndex = n);
+}
+
+/* Основная функция слайдера */
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("dbc-list");
+  if (n > slides.length) {
+    slideIndex = 1
+  }
+  if (n < 1) {
+      slideIndex = slides.length;
+  }
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+  }
+  slides[slideIndex - 1].style.display = "grid";
+  closeAddress(address);
+  console.log(slides.length);
+}
