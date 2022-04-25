@@ -2,6 +2,7 @@ const address = document.querySelector('.address');
 const templateDbc = document.querySelector('.template-dbc');
 const dbcCodes = document.querySelector('.dbc-codes');
 const closeBtnAddress = document.querySelector('.address-clients__close-btn');
+const anywhere = document.querySelector('.page');
 // Метод поиска адресов с помощью map
 // const createCard = (card) => {
 //   const addressTitle = document.createElement('option');
