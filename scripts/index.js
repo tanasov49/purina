@@ -1,4 +1,5 @@
 const address = document.querySelector('.address');
+const popup = document.querySelector('.popup')
 const templateDbc = document.querySelector('.template-dbc');
 const dbcCodes = document.querySelector('.dbc-codes');
 const closeBtnAddress = document.querySelector('.address-clients__close-btn');
@@ -40,30 +41,33 @@ dbc.forEach(function (dbc) {
     dbcCodes.appendChild(dbcList);
   }
 });
-
+const closeOverlayPopup = (evt) => {
+  if (evt.target.classList.contains('popup_opened')) {
+    closeAddress(evt.target);
+  }
+}
 
 const closeKeyEsc = (evt) => {
   if (evt.key === 'Escape') {
-    const addressOpened = document.querySelector('.address__opened');
-    closeAddress(addressOpened);
+    closeAddress(popup);
   }
 }
-const openAddress = (address) => {
-  address.classList.add("address__opened");
-  closeBtnAddress.classList.add("address-clients__close-btn_visibled");
+const openAddress = (popup) => {
+  popup.classList.add("popup_opened");
   document.addEventListener('keyup', closeKeyEsc);
+  document.addEventListener('click', closeOverlayPopup);
 }
-const closeAddress = (address) => {
-  address.classList.remove("address__opened");
-  closeBtnAddress.classList.remove("address-clients__close-btn_visibled");
+const closeAddress = (popup) => {
+  popup.classList.remove("popup_opened");
   document.removeEventListener('keyup', closeKeyEsc);
+  document.removeEventListener('click', closeOverlayPopup);
 }
 const btnAddress = document.querySelector('.address-clients__btn');
 btnAddress.addEventListener('click', () => {
-  openAddress(address);
+  openAddress(popup);
 });
 closeBtnAddress.addEventListener('click', () => {
-  closeAddress(address);
+  closeAddress(popup);
 })
 
 var slideIndex = 1;
@@ -86,6 +90,6 @@ function showSlides(n) {
       slides[i].style.display = "none";
   }
   slides[slideIndex - 1].style.display = "grid";
-  closeAddress(address);
+  closeAddress(popup);
   console.log(slides.length);
 }

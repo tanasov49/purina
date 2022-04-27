@@ -6,15 +6,10 @@
     background-position: center;
     border: none;
     background-color: transparent;
-    position: absolute;
-    display: none;
+    display: block;
     outline: none;
     z-index: 3;
-    right: 70px;
-    top: -40px;
+    position: absolute;
+    top: 30vw;
 }
-@media screen and (max-width: 768px) and (min-width: 320px) {
-    .address-clients__close-btn {
-        right: 22px;
-    }
-}
+

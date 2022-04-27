@@ -1,11 +1,16 @@
 .address {
     position: absolute;
-    margin: 0;
-    width: 0;
-    padding: 10px 5px;
+    margin: auto;
+    width: 500px;
+    height: 200px;
     background-color: aliceblue;
-    top: 0;
-    opacity: 0;
-    overflow: hidden;
+    overflow: auto;
     transition: opacity 0.3s linear;
+    z-index: 3;
+    padding: 30px;
+}
+@media screen and (max-width: 768px) and (min-width: 320px) {
+    .address {
+    max-width: 250px;
+    }
 }
