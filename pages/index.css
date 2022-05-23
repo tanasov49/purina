@@ -8,8 +8,6 @@
 @import url(../blocks/city/__link/city__link.css);
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/footer/__copyright/footer__copyright.css);
-
-
 body {
     max-width: 1280px;
     margin: 0 auto;
