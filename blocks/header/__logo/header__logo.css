@@ -1,5 +1,4 @@
 .header__logo {
-    padding: 20px 0 0 0;
-    width: 210px;
-    height: 69px;
+    max-width: 210px;
+    min-height: 69px;
 }

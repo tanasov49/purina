@@ -13,25 +13,28 @@
 <body>
     <div class="page">
         <header class="header">
-            <img class="header__logo" src="./images/PurinaRUHeader_2.webp" alt="Логотип">
+            <a href="./index.html" class="header__link">
+                <img class="header__logo" src="./images/PurinaRUHeader_2.webp" alt="Логотип">
+            </a>
+            <h1 class="header__title">
+                Выберите город
+            </h1>
+            <ul class="cities">
+                <li class="city">
+                    <a href="./html/kaliningrad.html" class="city__link">Калининград</a>
+                </li>
+                <li class="city">
+                    <a href="./html/murmansk.html" class="city__link">Мурманск
+                    </a>
+                </li>
+                <li class="city">
+                    <a href="#" class="city__link">Вологда</a>
+                </li>
+                <li class="city">
+                    <a href="#" class="city__link">Тверь</a>
+                </li>
+            </ul>
         </header>
-        <main class="main">
-            <section class="info">
-                <h1 class="info__title">Добро пожаловать на сайт</h1>
-                <p class="info__subtitle">Выберите ниже нужный вам адрес</p>
-            </section>
-            <section class="address-clients">
-                <button class="address-clients__btn">Список адресов</button>
-                <h2 class="address-clients__title">Ниже приведены позиции с нулевым значением</h2>
-                <div class="popup">
-                    <button class="address-clients__close-btn"></button>
-                    <ul class="address">
-                    </ul>
-                </div>
-                <ul class="dbc-codes">
-                </ul>
-            </section>
-        </main>
         <footer class="footer">
             <p class="footer__copyright">2022 &copy; Александр Танасов</p>
         </footer>
@@ -40,7 +43,5 @@
             </li>
         </template>    
     </div>
-    <script src="./scripts/dbc.js"></script>
-    <script src="./scripts/index.js"></script>
 </body>
 </html>
